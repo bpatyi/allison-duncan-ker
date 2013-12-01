@@ -13,11 +13,12 @@ class MenuItemForm(forms.ModelForm):
 
         url = cleaned_data.get('url', 'None')
         flatpage = cleaned_data.get('flatpage', 'None')
+        section = cleaned_data.get('section', 'None')
 
-        if url and flatpage:
-            raise forms.ValidationError(u"Please, just fill in one field only. Flatpage or Url.")
+        if url and flatpage or url and section or flatpage and section:
+            raise forms.ValidationError(u"Please, just fill in one field only. Flatpage or Url or Section.")
 
-        if not(url or flatpage):
-            raise forms.ValidationError(u"Please, fill in flatpage or url field.")
+        if not(url or flatpage or section):
+            raise forms.ValidationError(u"Please, fill in flatpage, section, or url field.")
 
         return cleaned_data

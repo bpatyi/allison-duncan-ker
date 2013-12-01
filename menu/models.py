@@ -2,6 +2,7 @@ from django.db import models
 from autoslug import AutoSlugField
 
 from django.contrib.flatpages.models import FlatPage
+from section.models import Section
 
 
 class MenuItem(models.Model):
@@ -10,6 +11,7 @@ class MenuItem(models.Model):
     slug = AutoSlugField(populate_from='title')
     flatpage = models.ForeignKey(FlatPage, verbose_name=u'Flatpage', blank=True, null=True)
     url = models.CharField(verbose_name=u'Url', blank=True, null=True, max_length=50, help_text=u'like /about/')
+    section = models.ForeignKey(Section, verbose_name=u'Section', blank=True, null=True)
 
 
     def get_absolute_url(self):
