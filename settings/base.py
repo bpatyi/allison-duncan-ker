@@ -46,6 +46,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'collection',
+    'filemanager',
     'mysite',
     'site_owner_contact',
     'menu',
