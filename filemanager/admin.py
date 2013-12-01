@@ -1,3 +1,9 @@
 from django.contrib import admin
 
-# Register your models here.
+from filemanager.models import File
+
+class FileAdmin(admin.ModelAdmin):
+    model = File
+    list_display = ('pk', 'the_file', 'description')
+
+admin.site.register(File, FileAdmin)
