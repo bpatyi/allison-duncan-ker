@@ -1,0 +1,52 @@
+/* IMPORT BOOTSTRAP CSS */
+@import url("bootstrap.min.css");
+@import url("bootstrap-theme.min.css");
+
+
+/* Styles */
+
+.icon-bar{
+    background-color: #FFF;
+}
+
+#header-wrapper, #footer-wrapper{
+    background-color: #1e1e1e;
+    background-image: none;
+    border-radius: 0;
+    border: 0;
+}
+
+    #header-wrapper .navbar-brand{
+        color: #FFF;
+        padding: 10px;
+    }
+
+        #header-wrapper #logo{
+            height: 30px;
+        }
+
+    .navbar-nav{
+        padding: 5px 0;
+    }
+
+    .navbar-nav>li>a{
+        color: #FFF !important;
+    }
+
+        .navbar-nav>.active>a, .navbar-nav>li>a:hover{
+            background-image: none !important;
+            background-color: #1e1e1e !important;
+        }
+
+    .navbar-nav>li>a{
+        padding: 10px 15px;
+    }
+
+    .navbar-nav>li{
+        border-right: 1px solid #484558;
+    }
+
+    .navbar-nav>li:last-of-type{
+        border-right: none;
+    }
+
