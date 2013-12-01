@@ -9,13 +9,22 @@ from django.shortcuts import render_to_response, get_object_or_404, redirect
 
 from django.views.generic import View
 
+from section.models import Section
+
 
 class Index(View):
     template_name = 'index.html'
 
     def get(self, request, *args, **kwargs):
+        try:
+            sections = Section.objects.all()
+        except Section.DoesNotExist:
+            pass
 
-        context = {}
+        context = {
+            'sections': sections,
+        }
 
         return TemplateResponse(request, self.template_name, context)
+
 
