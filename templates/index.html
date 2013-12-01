@@ -1,5 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    hello
+    {% for section in sections %}
+    <div class="container">
+        <div class="col-sm-12">
+            <div class="row">
+                <h1 id="{{ section.slug }}" class="section-title">{{ section.title }}</div>
+                <p class="section-description">{{ section.description }}</p>
+            </div>
+        </div>
+    </div>
+    <img src="{{ MEDIA_URL }}{{ section.image }}" class="img-responsive section-image"/>
+    {% endfor%}
 {% endblock %}
