@@ -5,6 +5,10 @@
 
 /* Styles */
 
+body{
+    font-family: Helvetica, sans-serif, Arial;
+}
+
 .icon-bar{
     background-color: #FFF;
 }
@@ -15,6 +19,9 @@
     border-radius: 0;
     border: 0;
 }
+    #header-wrapper{
+        margin-bottom: 0;
+    }
 
     #header-wrapper .navbar-brand{
         color: #FFF;
@@ -50,3 +57,79 @@
         border-right: none;
     }
 
+.billboard-image-wrapper{
+    text-align: center;
+}
+
+#site-title{
+    left: 0;
+    position:absolute;
+    text-align:center;
+    top: 30%;
+    width: 100%;
+    color: #fff;
+    font-size: 5em;
+}
+
+#site-subtitle{
+    left: 0;
+    position:absolute;
+    text-align:center;
+    top: 40%;
+    width: 100%;
+    color: #fff;
+    font-size: 3em;
+}
+
+#billboard-image{
+    margin-bottom: 30px;
+}
+
+.section-title{
+    color: #ff9422;
+    text-align: center;
+    font-weight: bold;
+    font-size: 60px;
+}
+
+.section-description{
+    color: #000;
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+@media screen and (min-width: 768px){
+    .section-image{
+        min-width: 100%;
+    }
+}
+
+.section-image{
+    margin-bottom: 75px;
+}
+
+.section-image:last-of-type{
+    margin-bottom: 0;
+}
+
+.flatpage-title{
+    color: #ff9422;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.flatpage-content{
+    margin-bottom: 50px;
+}
+
+#contact-wrapper{
+    padding: 20px 0;
+    color: #FFF;
+    background-color: #434343;
+    text-align: center;
+    font-size: 20px;
+}
+
+.contact-name{
+    font-size: 32px;
+}
