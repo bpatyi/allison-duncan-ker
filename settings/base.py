@@ -10,7 +10,7 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+BASE_DIR = os.path.dirname(os.path.realpath(__file__))
 
 
 # Quick-start development settings - unsuitable for production
@@ -99,7 +99,9 @@ SITE_ID = 1
 
 STATIC_ROOT = os.path.join(BASE_DIR, '../static_deployment/')
 STATIC_URL = '/static/'
-STATIC_DIRS = ( os.path.join(BASE_DIR, '../static/'), )
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "../static/"),
+)
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder'
