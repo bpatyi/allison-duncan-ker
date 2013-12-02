@@ -21,11 +21,13 @@ FTP_PASSWORD = os.environ.get('FTP_PASSWORD')
 FTP_HOST = os.environ.get('FTP_HOST')
 FTP_PORT = os.environ.get('FTP_PORT')
 
+# Add below to settings.py:
+# FTP_STORAGE_LOCATION = '[a]ftp://<user>:<pass>@<host>:<port>/[path]'
 FTP_STORAGE_LOCATION = 'ftp://%s:%s@%s:%s/' % (FTP_USER, FTP_PASSWORD, FTP_HOST, FTP_PORT)
 
 MEDIA_ROOT = 'http://static.alisonduncankerr.com/'
 STATIC_ROOT = 'http://static.alisonduncankerr.com/'
-STATIC_URL = 'http://static.alisonduncankerr.com/static/'
-MEDIA_URL = 'http://static.alisonduncankerr.com/media/'
+STATIC_URL = 'http://static.alisonduncankerr.com/'
+MEDIA_URL = 'http://static.alisonduncankerr.com/'
 
 ADMIN_MEDIA_PREFIX = STATIC_ROOT + "grappelli/"
