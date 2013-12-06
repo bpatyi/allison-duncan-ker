@@ -1,5 +1,5 @@
 <ul class="nav navbar-nav">
     {% for menu in menus %}
-    <li><a href="{% if menu.section %}/#{{ menu.section.slug }}{% endif %}{% if menu.flatpage %}{{ menu.flatpage.url }}{% endif %}{% if menu.url %}{{ menu.url }}{% endif %}">{{ menu.title }}</a></li>
+    <li><a {% if menu.section %}class="scroll"{% endif %} href="{% if menu.section %}/#{{ menu.section.slug }}{% endif %}{% if menu.flatpage %}{{ menu.flatpage.url }}{% endif %}{% if menu.url %}{{ menu.url }}{% endif %}">{{ menu.title }}</a></li>
     {% endfor %}
 </ul>

@@ -6,7 +6,7 @@
 /* Styles */
 
 body{
-    font-family: Helvetica, sans-serif, Arial;
+    font-family: "Trebuchet MS", Verdana, Helvetica, sans-serif, Arial !important;
 }
 
 .icon-bar{
@@ -25,7 +25,7 @@ body{
 
     #header-wrapper .navbar-brand{
         color: #FFF;
-        padding: 10px;
+        /*padding: 10px;*/
     }
 
         #header-wrapper #logo{
@@ -50,7 +50,7 @@ body{
     }
 
     .navbar-nav>li{
-        border-right: 1px solid #484558;
+        /* border-right: 1px solid #484558; */
     }
 
     .navbar-nav>li:last-of-type{
@@ -63,8 +63,8 @@ body{
 
 #site-title{
     left: 0;
-    position:absolute;
-    text-align:center;
+    position: absolute;
+    text-align: center;
     top: 30%;
     width: 100%;
     color: #fff;
@@ -73,12 +73,13 @@ body{
 
 #site-subtitle{
     left: 0;
-    position:absolute;
-    text-align:center;
+    position: absolute;
+    text-align: center;
     top: 40%;
     width: 100%;
     color: #fff;
     font-size: 3em;
+    font-weight: normal;
 }
 
 #billboard-image{
@@ -89,7 +90,7 @@ body{
     color: #ff9422;
     text-align: center;
     font-weight: bold;
-    font-size: 60px;
+    font-size: 50px;
 }
 
 .section-description{
@@ -132,4 +133,9 @@ body{
 
 .contact-name{
     font-size: 32px;
+}
+
+#copyright{
+    color: #FFF;
+    margin-top: 30px;
 }

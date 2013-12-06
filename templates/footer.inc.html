@@ -14,9 +14,12 @@
 <div id="footer-wrapper">
     <div class="container">
         <div class="col-sm-12">
-            <div class="row">
-                {% include 'menu.inc.html' %}
-            </div>
+                <div class="col-sm-4" style="margin-top: 15px">
+                    <span id="copyright">&copy; {% now 'Y' %} {{ contact.name }}</span>
+                </div>
+                <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
+                    {% include 'menu.inc.html' %}
+                </nav>
         </div>
     </div>
 </div>
