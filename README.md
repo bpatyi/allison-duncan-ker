@@ -1,4 +1,6 @@
-allison-duncan-ker
+alison-duncan-ker
 ==================
 
-Allison Duncan Kerr site
+Alison Duncan Kerr site
+
+heroku config:add DJANGO_SETTINGS_MODULE=settings.settings_heroku
