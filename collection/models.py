@@ -3,10 +3,6 @@ from autoslug import AutoSlugField
 
 from section.models import Section
 
-def image_fancy_path(instance, filename):
-    return 'images/%s/' % self.instance.collection.slug
-
-
 
 class Collection(models.Model):
     title = models.CharField(verbose_name=u'Collection title', max_length=50, blank=False, null=False, unique=True)
@@ -26,10 +22,12 @@ class Collection(models.Model):
 
 class CollectionImage(models.Model):
     collection = models.ForeignKey(Collection, verbose_name=u'Collection', blank=False, null=False)
-    image = models.ImageField(verbose_name='Image', upload_to=image_fancy_path)
+    title = models.CharField(verbose_name=u'Image title', max_length=100, blank=True, null=True)
+    description = models.TextField(verbose_name=u'Image description', blank=True, null=True)
+    image = models.ImageField(verbose_name='Image', upload_to= 'images/')
 
     def __unicode__(self):
-        return (u"%s") % (self.title)
+        return (u"%s - %s") % (self.collection.slug, self.image)
 
 
     class Meta:
