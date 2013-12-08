@@ -14,6 +14,7 @@
                 {% for k, collection in values.collections.items %}
                 <div class="col-sm-4">
                     <div class="col-sm-5">
+                        {{ collection.images }}
                         {% for image in collection.images %}
                             {% if image %}
                                 {% thumbnail image.image "100x100" crop="center" as im %}
