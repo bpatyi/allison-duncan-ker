@@ -10,6 +10,7 @@ from django.shortcuts import render_to_response, get_object_or_404, redirect
 from django.views.generic import View
 
 from section.models import Section
+from collection.models import Collection, CollectionImage
 
 
 class Index(View):
@@ -21,8 +22,23 @@ class Index(View):
         except Section.DoesNotExist:
             pass
 
+        everything = {}
+
+        for section in sections:
+            collections = section.collection_set.all()
+
+            everything[section.pk] = {
+                'section': section,
+                'collections': {},
+            }
+
+            for collection in collections:
+                images = collection.collectionimage_set.all()
+                if collection.pk not in everything[section.pk]['collections']:
+                    everything[section.pk]['collections'][collection.pk] = { 'collection': collection, 'images': images } 
+
         context = {
-            'sections': sections,
+            'sections': everything,
         }
 
         return TemplateResponse(request, self.template_name, context)

@@ -1,25 +1,48 @@
 {% extends 'base.html' %}
+{% load thumbnail %}
 
 {% block content %}
-    {% for section in sections %}
+    {% for key, values in sections.items %}
         <div class="container">
         <div class="col-sm-12">
             <div class="row">
-                <h1 id="{{ section.slug }}" class="section-title">{{ section.title }}</div>
-                <p class="section-description">{{ section.description }}</p>
+                <h1 id="{{ section.slug }}" class="section-title">{{ values.section.title }}</div>
+                <p class="section-description">{{ values.section.description }}</p>
             </div>
+            {% if values.collections %}
+            <div class="row" style="margin-bottom: 100px;">
+                {% for k, collection in values.collections.items %}
+                <div class="col-sm-4">
+                    <div class="col-sm-5">
+                        {% for image in collection.images %}
+                            {% if forloop.first %}
+                                {% thumbnail image.image "100x100" crop="center" as im %}
+                                    <a href="{{ MEDIA_URL }}{{ image.image }}" class="{{ collection.collection.pk }}-swipebox" title="">
+                                        <img src="{{ im.url }}" alt="image">
+                                    </a>
+                                {% endthumbnail %}
+                            {% else %}
+                                <a href="{{ MEDIA_URL }}{{ image.image }}" class="{{ collection.collection.pk }}-swipebox" title="" style="display: none;">
+                                    <img src="{{ im.url }}" alt="image">
+                                </a>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    <div class="col-sm-7">
+                        <h3 style="margin-top: 20px; color: #ff9422">{{ collection.collection.title }}</h3>
+                        <p>{{ collection.collection.description}}</p>
+                    </div>
+                </div>
+                <script type="text/javascript">
+                    $(function(){
+                        $(".{{ collection.collection.pk }}-swipebox").swipebox();
+                    });
+                </script>
+                {% endfor %}
+            </div>
+            {% endif %}
         </div>
     </div>
-    <img src="{{ MEDIA_URL }}{{ section.image }}" class="img-responsive section-image"/>
+    <img src="{{ MEDIA_URL }}{{ values.section.image }}" class="img-responsive section-image"/>
     {% endfor%}
 {% endblock %}
-
-<div class="container">
-        <div class="col-sm-12">
-            <div class="row">
-                <h1 id="{{ section.slug }}" class="section-title">{{ section.title }}</div>
-                <p class="section-description">{{ section.description }}</p>
-            </div>
-        </div>
-    </div>
-    <img src="{{ MEDIA_URL }}{{ section.image }}" class="img-responsive section-image"/>

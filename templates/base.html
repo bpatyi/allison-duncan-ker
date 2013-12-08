@@ -7,6 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link href="{% static "css/style.css" %}" rel="stylesheet">
+    <link href="{% static "css/swipebox.css" %}" rel="stylesheet">
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="{% static "js/jquery-2.0.3.min.js" %}"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -29,28 +33,28 @@
         {% include 'footer.inc.html' %}
     {% endblock footer %}
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="{% static "js/jquery-2.0.3.min.js" %}"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="{% static "js/bootstrap.min.js" %}" ></script>
+    <script src="{% static "js/jquery.swipebox.min.js" %}" ></script>
 
+
+    {% block extra-scripts %}{% endblock %}
     <script type="text/javascript">
       $(document).ready(function(){
-        $(function() {
-  $('a[href*=#]:not([href=#])').click(function() {
-    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-      if (target.length) {
-        $('html,body').animate({
-          scrollTop: target.offset().top
-        }, 1000);
-        return false;
-      }
-    }
-  });
-});
-
+          $(function() {
+            $('a[href*=#]:not([href=#])').click(function() {
+              if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+                if (target.length) {
+                  $('html,body').animate({
+                  scrollTop: target.offset().top
+                }, 1000);
+                return false;
+              }
+            }
+          });
+        });
       });
     </script>
   </body>
