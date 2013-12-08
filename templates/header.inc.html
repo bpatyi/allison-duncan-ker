@@ -21,7 +21,15 @@
 </header>
 
 <div id="billboard-image-wrapper">
-    <h1 id="site-title">{{ site.page_title }}</h1>
-    <h3 id="site-subtitle">{{ site.page_subtitle }}</h3>
+    <div id="wrapper">
+    <div id="outer">
+        <div id="middle">
+            <div id="inner">
+            <h1 id="site-title">{{ site.page_title }}</h1>
+            <h3 id="site-subtitle">{{ site.page_subtitle }}</h3>
+             </div>
+        </div>
+    </div>
+</div>
     <img id="billboard-image" src="{{ MEDIA_URL }}{{ site.billboard_image }}" class="img-responsive"/>
 </div>
