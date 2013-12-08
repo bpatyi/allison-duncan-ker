@@ -7,7 +7,7 @@ class Section(models.Model):
     title = models.CharField(verbose_name=u'Section Title', max_length=30, blank=False, null=False, unique=True)
     slug = AutoSlugField(populate_from='title')
     description = models.TextField(verbose_name=u'Section description')
-    image = models.ImageField(verbose_name=u'Section promo image', upload_to='promo_images/', blank=False, null=False)
+    image = models.ImageField(verbose_name=u'Section promo image', upload_to='promo_images/', blank=True, null=True)
 
     def __unicode__(self):
         return (u"%s") % (self.title)

@@ -2,10 +2,11 @@
 
 {% block content %}
     {% for key, values in sections.items %}
-        <div class="container">
+    <img src="{{ MEDIA_URL }}{{ values.section.image }}" class="img-responsive section-image"/>
+    <div class="container">
         <div class="col-sm-12">
             <div class="row">
-                <h1 id="{{ values.section.slug }}" class="section-title">{{ values.section.title }}</div>
+                <h1 id="{{ values.section.slug }}" class="section-title">{{ values.section.title }}</h1>
                 <p class="section-description">{{ values.section.description }}</p>
             </div>
             {% if values.collections %}
@@ -40,6 +41,5 @@
             {% endif %}
         </div>
     </div>
-    <img src="{{ MEDIA_URL }}{{ values.section.image }}" class="img-responsive section-image"/>
     {% endfor%}
 {% endblock %}
