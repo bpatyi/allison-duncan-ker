@@ -6,7 +6,7 @@
         <div class="container">
         <div class="col-sm-12">
             <div class="row">
-                <h1 id="{{ section.slug }}" class="section-title">{{ values.section.title }}</div>
+                <h1 id="{{ values.section.slug }}" class="section-title">{{ values.section.title }}</div>
                 <p class="section-description">{{ values.section.description }}</p>
             </div>
             {% if values.collections %}
@@ -14,12 +14,12 @@
                 {% for k, collection in values.collections.items %}
                 <div class="col-sm-4">
                     <div class="col-sm-5">
-                        {{ collection.images }}
                         {% for image in collection.images %}
-                            {% if image %}
+                            {% if forloop.first %}
                                 {% thumbnail image.image "100x100" crop="center" as im %}
                                     <a href="{{ MEDIA_URL }}{{ image.image }}" class="{{ collection.collection.pk }}-swipebox" title="">
                                         <img src="{{ im.url }}" alt="image">
+                                        {{ img.url }}
                                     </a>
                                 {% endthumbnail %}
                             {% else %}
