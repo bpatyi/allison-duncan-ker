@@ -109,12 +109,8 @@ body, h1, h2, h3, h4, h5, h6, p, a, span{
     color: #FFF;
 }
 
-#site-title{
-
-}
-
-#site-subtitle{
-
+.full-size-image{
+    width: 100%;
 }
 
 #billboard-image{
