@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-{% load thumbnail %}
 
 {% block content %}
     {% for key, values in sections.items %}
@@ -16,18 +15,13 @@
                     <div class="col-sm-5">
                         {% for image in collection.images %}
                             {% if forloop.first %}
-                                {% thumbnail image.image "100x100" crop="center" as im %}
                                     <a href="{{ MEDIA_URL }}{{ image.image }}" class="{{ collection.collection.pk }}-swipebox" title="">
-                                        <img src="{{ im.url }}" alt="image">
-                                        {{ im.url }}
+                                        <div style="width: 100px; height: 100px; background-position: center center; background-repeat: no-repeat; background-image: url('{{ MEDIA_URL }}{{ image.image }}');"></div>
                                     </a>
-                                {% endthumbnail %}
                             {% else %}
-                                {% thumbnail image.image "100x100" crop="center" as im %}
-                                <a href="{{ MEDIA_URL }}{{ image.image }}" class="{{ collection.collection.pk }}-swipebox" title="" style="display: none;">
-                                    <img src="{{ im.url }}" alt="image">
-                                </a>
-                                {% endthumbnail %}
+                                <a href="{{ MEDIA_URL }}{{ image.image }}" class="{{ collection.collection.pk }}-swipebox" title="" style="display:none;">
+                                        <div style="width: 100px; height: 100px; background-position: center center; background-repeat: no-repeat; background-image: url('{{ MEDIA_URL }}{{ image.image }}');"></div>
+                                    </a>
                             {% endif %}
                         {% endfor %}
                     </div>
