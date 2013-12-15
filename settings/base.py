@@ -13,6 +13,7 @@ import os
 BASE_DIR = os.path.dirname(os.path.realpath(__file__))
 
 
+HEROKU = False
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
@@ -150,3 +151,15 @@ TINYMCE_COMPRESSOR = True
 TINYMCE_FILEBROWSER = True
 
 GRAPPELLI_ADMIN_TITLE = "Alison Duncan Kerr"
+
+TINYMCE_DEFAULT_CONFIG = {
+    'plugins': "table,spellchecker,paste,searchreplace",
+    'theme': "advanced",
+    'cleanup_on_startup': True,
+    'custom_undo_redo_levels': 10,
+}
+
+TINYMCE_SPELLCHECKER = True
+TINYMCE_COMPRESSOR = True
+
+TINYMCE_FILEBROWSER = True
