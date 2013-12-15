@@ -20,6 +20,7 @@
     </div>
 </header>
 
+{% if site.billboard_image %}
 <div id="billboard-image-wrapper">
     <div id="wrapper">
         <div id="outer">
@@ -33,3 +34,4 @@
     </div>
     <img id="billboard-image" src="{{ MEDIA_URL }}{{ site.billboard_image }}" class="img-responsive full-size-image"/>
 </div>
+{% endif %}
