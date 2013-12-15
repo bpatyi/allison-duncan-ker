@@ -23,11 +23,6 @@ FTP_PASSWORD = os.environ.get('FTP_PASSWORD')
 FTP_HOST = os.environ.get('FTP_HOST')
 FTP_PORT = os.environ.get('FTP_PORT')
 
-FTP_USER = 'site.static'
-FTP_PASSWORD = 'adusite'
-FTP_PORT = '21'
-FTP_HOST = 'static.alisonduncankerr.com'
-
 # Add below to settings.py:
 # FTP_STORAGE_LOCATION = '[a]ftp://<user>:<pass>@<host>:<port>/[path]'
 FTP_STORAGE_LOCATION = 'ftp://%s:%s@%s:%s/' % (FTP_USER, FTP_PASSWORD, FTP_HOST, FTP_PORT)
