@@ -19,19 +19,3 @@
         </nav>
     </div>
 </header>
-
-{% if site.billboard_image %}
-<div id="billboard-image-wrapper">
-    <div id="wrapper">
-        <div id="outer">
-            <div id="middle">
-                <div id="inner">
-                    <h1 id="site-title">{{ site.page_title }}</h1>
-                    <h3 id="site-subtitle">{{ site.page_subtitle }}</h3>
-                </div>
-            </div>
-        </div>
-    </div>
-    <img id="billboard-image" src="{{ MEDIA_URL }}{{ site.billboard_image }}" class="img-responsive full-size-image"/>
-</div>
-{% endif %}

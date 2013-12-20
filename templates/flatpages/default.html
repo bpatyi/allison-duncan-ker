@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 
+{% block billboard %}{% endblock %}
+
 {% block content %}
+<div class="container text-center" style="margin-top: 60px;">
     <h1 class="flatpage-title">{{ flatpage.title }}</h1>
     <p class="flatpage-content">{{ flatpage.content }}</p>
+</div>
 {% endblock %}

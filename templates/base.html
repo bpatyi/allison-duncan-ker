@@ -2,31 +2,50 @@
 
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>{% block title %}{% block subtitle %}{% endblock %}{% endblock %}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap -->
-    <link href="{% static "css/style.css" %}" rel="stylesheet">
-    <link href="{% static "css/swipebox.css" %}" rel="stylesheet">
+    <head>
+        <title>{% block title %}{% block subtitle %}{% endblock %}{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Bootstrap -->
+        <link href="{% static "css/style.css" %}" rel="stylesheet">
+        <link href="{% static "css/swipebox.css" %}" rel="stylesheet">
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="{% static "js/jquery-2.0.3.min.js" %}"></script>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="{% static "js/jquery-2.0.3.min.js" %}"></script>
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="{% static "js/html5shiv.js" %}"></script>
-      <script src="{% static "js/respond.min.js" %}"></script>
-    <![endif]-->
-  </head>
-  <body>
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="{% static "js/html5shiv.js" %}"></script>
+        <script src="{% static "js/respond.min.js" %}"></script>
+        <![endif]-->
+    </head>
+    <body>
 
     {% block header %}
         {% include 'header.inc.html' %}
+        {% if site.billboard_image %}
+        {% block billboard %}
+        <div id="billboard-image-wrapper">
+            <div id="wrapper">
+                <div id="outer">
+                    <div id="middle">
+                        <div id="inner">
+                            <h1 id="site-title">{{ site.page_title }}</h1>
+                            <h3 id="site-subtitle">{{ site.page_subtitle }}</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <img id="billboard-image" src="{{ MEDIA_URL }}{{ site.billboard_image }}" class="img-responsive full-size-image"/>
+        </div>
+        {% endblock %}
+        {% endif %}
     {% endblock header %}
 
+    <div class="main">
     {% block content %}{% endblock content %}
-
+    </div>
+    
     {% block footer %}
         {% include 'footer.inc.html' %}
     {% endblock footer %}
@@ -38,22 +57,22 @@
 
     {% block extra-scripts %}{% endblock %}
     <script type="text/javascript">
-      $(document).ready(function(){
-          $(function() {
-            $('a[href*=#]:not([href=#])').click(function() {
-              if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-                var target = $(this.hash);
-                target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-                if (target.length) {
-                  $('html,body').animate({
-                  scrollTop: target.offset().top
-                }, 1000);
-                return false;
-              }
-            }
-          });
+        $(document).ready(function(){
+            $(function() {
+                $('a[href*=#]:not([href=#])').click(function() {
+                    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+                        var target = $(this.hash);
+                        target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+                        if (target.length) {
+                            $('html,body').animate({
+                                scrollTop: target.offset().top
+                            }, 1000);
+                            return false;
+                        }
+                    }
+                });
+            });
         });
-      });
     </script>
   </body>
 </html>
