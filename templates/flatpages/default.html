@@ -5,6 +5,6 @@
 {% block content %}
 <div class="container text-center" style="margin-top: 60px;">
     <h1 class="flatpage-title">{{ flatpage.title }}</h1>
-    <p class="flatpage-content">{{ flatpage.content }}</p>
+    <div class="flatpage-content">{{ flatpage.content|safe }}</div>
 </div>
 {% endblock %}
